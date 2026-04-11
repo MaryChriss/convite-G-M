@@ -103,3 +103,267 @@ small {
 .papel img {
   width: 120rem;
 }
+
+.saveTheDate {
+  background-color: '#F4F4F4';
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: -16rem;
+  margin-bottom: 10rem;
+}
+
+.save {
+  font-family: 'Antic Didone', serif;
+  font-size: 7rem;
+  color: black;
+  align-items: center;
+  text-align: center;
+}
+
+.cronology {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -20rem;
+  flex-direction: row;
+  gap: 6rem;
+  margin-left: 13rem;
+  margin-top: 2rem;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.linha {
+  width: 1px;
+  height: 60px;
+  background-color: black;
+  margin: 10px 0;
+}
+
+.numero-event {
+  font-family: 'Antic Didone', serif;
+  font-size: 4rem;
+  color: black;
+  margin-left: 10rem;
+  margin-top: -5rem;
+}
+
+.event {
+  font-family: 'Antic Didone', serif;
+  font-size: 2.8rem;
+  color: black;
+}
+.carousel-section {
+  width: 100%;
+  height: 60rem;
+  background-color: #fff;
+  overflow: hidden;
+}
+swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+swiper-slide {
+  height: 100%;
+}
+
+.wedding-pane {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.pane-content {
+  z-index: 2;
+  padding: 0 10%;
+}
+
+.pane-title {
+  font-family: 'Antic Didone', serif;
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  font-weight: normal;
+}
+
+.pane-address {
+  font-size: 0.8rem;
+  margin-bottom: 40px;
+  opacity: 0.8;
+}
+
+.pane-btn {
+  background: transparent;
+  border: 1px solid black;
+  padding: 12px 30px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: 0.3s;
+}
+
+.btn-outline-white {
+  border-color: white;
+  color: white;
+}
+
+swiper-slide.swiper-slide-active {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.wedding-card {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  padding: 2rem;
+  box-sizing: border-box;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-family: 'Antic Didone', serif;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: normal;
+}
+
+.text-white {
+  color: white;
+}
+
+.card-btn {
+  padding: 0.5rem 1.5rem;
+  border: 1px solid black;
+  background: transparent;
+  border-radius: 50px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.card-btn:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.btn-dark {
+  border-color: white;
+  color: white;
+}
+
+.btn-dark:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.wedding-section {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  padding: 0;
+  box-sizing: border-box;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.section-content {
+  text-align: center;
+  padding: 2rem;
+  max-width: 800px;
+}
+
+.section-title {
+  font-family: 'Antic Didone', serif;
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+  font-weight: normal;
+}
+
+.small-address {
+  font-family: inherit;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  opacity: 0.7;
+}
+
+.text-white {
+  color: white;
+}
+
+.section-btn {
+  padding: 1rem 3rem;
+  border: 1px solid black;
+  background: transparent;
+  border-radius: 50px;
+  font-family: inherit;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.section-btn:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.btn-light {
+  border-color: white;
+  color: white;
+}
+
+.btn-light:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.pane-white {
+  background-image: url('/fundoCerimonia.png');
+}
+
+.pane-dark {
+  color: #fff;
+  background-image: url('/fundo-presentes.png');
+}
+
+.pane-sage {
+  color: #000;
+  background-image: url('/fundo-vestimenta.png');
+}
+
+.pane-grey {
+  color: #fff;
+  background-image: url('/fundo-galeria.png');
+}
+
+swiper-container::part(button-prev),
+swiper-container::part(button-next) {
+  color: #000;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 20px;
+  border-radius: 50%;
+  scale: 0.6;
+}

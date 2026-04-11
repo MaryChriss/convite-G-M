@@ -1,10 +1,14 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-
+import { Component, OnInit, ChangeDetectorRef, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { register } from 'swiper/element/bundle';
+import { RouterLink } from '@angular/router';
+register();
 @Component({
   selector: 'app-home',
-  imports: [],
+  standalone: true,
+  imports: [RouterLink],
   templateUrl: './home.html',
   styleUrl: './home.css',
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class Home implements OnInit {
   meses = 0;
@@ -35,8 +39,6 @@ export class Home implements OnInit {
       const novosSegundos = Math.floor((diff / 1000) % 60);
       const novosMinutos = Math.floor((diff / (1000 * 60)) % 60);
       const novasHoras = Math.floor((diff / (1000 * 60 * 60)) % 24);
-
-      const totalDias = Math.floor(diff / (1000 * 60 * 60 * 24));
 
       let anoAtual = agora.getFullYear();
       let mesAtual = agora.getMonth();

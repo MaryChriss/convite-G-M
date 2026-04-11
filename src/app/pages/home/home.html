@@ -44,4 +44,87 @@
   <div class="papel">
     <img src="/bordaPapel.png" />
   </div>
+
+  <div class="saveTheDate">
+    <h1 class="save">
+      SAVE <br />
+      THE <br />DATE!
+    </h1>
+
+    <div class="cronology">
+      <div class="item">
+        <img src="/comecoSTD.png" class="saveImg" />
+        <h2 class="numero-event">01.</h2>
+        <div class="linha"></div>
+        <p class="event">O começo</p>
+      </div>
+
+      <div class="item">
+        <img src="/pedidoSTD.png" class="saveImg" />
+        <h2 class="numero-event">02.</h2>
+        <div class="linha"></div>
+        <p class="event">O pedido</p>
+      </div>
+
+      <div class="item">
+        <img src="/casamentoSTD.png" class="saveImg" />
+        <h2 class="numero-event">03.</h2>
+        <div class="linha"></div>
+        <p class="event">O casamento</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="carousel-section">
+    <swiper-container
+      [slidesPerView]="2"
+      [spaceBetween]="0"
+      [loop]="true"
+      [navigation]="true"
+      [grabCursor]="true"
+    >
+      <swiper-slide>
+        <div class="wedding-pane pane-white">
+          <div class="pane-content">
+            <p class="pane-address">xxx endereço - SP, 13230 - 000<br />Estrada tal do Bairro X</p>
+            <h3 class="pane-title">A Cerimônia</h3>
+            <button class="pane-btn" routerLink="/tips">
+              veja informações sobre nosso grande dia
+            </button>
+          </div>
+        </div>
+      </swiper-slide>
+
+      <swiper-slide>
+        <div class="wedding-pane pane-dark">
+          <div class="pane-content">
+            <h3 class="pane-title">Lista de Presentes</h3>
+            <button class="pane-btn btn-outline-white" routerLink="/confirmation">
+              Link pra lista
+            </button>
+          </div>
+        </div>
+      </swiper-slide>
+
+      <swiper-slide>
+        <div class="wedding-pane pane-sage">
+          <div class="pane-content">
+            <h3 class="pane-title">Código de Vestimenta</h3>
+            <button class="pane-btn" routerLink="/tips">Confira</button>
+          </div>
+        </div>
+      </swiper-slide>
+
+      <swiper-slide>
+        <div class="wedding-pane pane-grey">
+          <div class="pane-content">
+            <h3 class="pane-title">Galeria</h3>
+            <button class="pane-btn btn-outline-white" routerLink="/photos">
+              Fotos do pré-wedding
+            </button>
+          </div>
+        </div>
+      </swiper-slide>
+    </swiper-container>
+  </div>
 </div>
