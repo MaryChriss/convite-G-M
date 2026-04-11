@@ -1,0 +1,105 @@
+.home-container {
+  background-image: url('/fundoHome.png');
+  background-size: 100% auto;
+  background-position: top center;
+  background-repeat: no-repeat;
+}
+
+.home-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 5.5rem;
+  color: white;
+  border-bottom: 1px solid white;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.textprinc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 15rem;
+}
+
+.versiculo {
+  font-size: 1rem;
+  color: white;
+  margin-top: 1.5rem;
+  max-width: 600px;
+}
+
+.data {
+  font-size: 1rem;
+  color: white;
+  margin-top: 1rem;
+}
+
+.countdown div {
+  text-align: center;
+  margin-top: 50rem;
+  margin-bottom: 13rem;
+}
+
+.countdown strong {
+  font-size: 2.5rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.countdown span {
+  display: block;
+  font-size: 4rem;
+  opacity: 0.7;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 9rem;
+  color: white;
+}
+
+.box {
+  text-align: center;
+}
+
+.numero {
+  display: inline-block;
+  font-size: 5rem;
+  font-family: 'Playfair Display', serif;
+  transition: all 0.3s ease;
+}
+
+.numero.animate {
+  transform: translateY(-10px);
+  opacity: 0;
+  animation: subirFade 0.4s ease forwards;
+}
+
+@keyframes subirFade {
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+small {
+  display: block;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.papel {
+  display: flex;
+  justify-content: center;
+  margin-top: -39rem;
+}
+.papel img {
+  width: 120rem;
+}

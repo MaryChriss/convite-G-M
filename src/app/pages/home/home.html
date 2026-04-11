@@ -1,0 +1,47 @@
+<div>
+  <div class="home-container">
+    <div class="textprinc">
+      <h1 class="home-title">Gabriela & Marcos</h1>
+      <h2 class="versiculo">
+        “Assim, eles já não são dois, mas sim uma só carne.<br />
+        Portanto, o que Deus uniu, ninguém separe...”
+      </h2>
+      <p class="data">27de março de 2027</p>
+    </div>
+
+    <div class="countdown">
+      <div class="box">
+        <span class="numero" [class.animate]="animMeses">{{ meses }}</span>
+        <p class="text-base">meses</p>
+      </div>
+
+      <div class="box">
+        <span class="numero" [class.animate]="animSemanas">{{ semanas }}</span>
+        <p class="text-base">semanas</p>
+      </div>
+
+      <div class="box">
+        <span class="numero" [class.animate]="animDias">{{ dias }}</span>
+        <p class="text-base">dias</p>
+      </div>
+
+      <div class="box">
+        <span class="numero" [class.animate]="animHoras">{{ horas }}</span>
+        <p class="text-base">horas</p>
+      </div>
+
+      <div class="box">
+        <span class="numero" [class.animate]="animMinutos">{{ minutos }}</span>
+        <p class="text-base">minutos</p>
+      </div>
+
+      <div class="box">
+        <span class="numero" [class.animate]="animSegundos">{{ segundos }}</span>
+        <p class="text-base">segundos</p>
+      </div>
+    </div>
+  </div>
+  <div class="papel">
+    <img src="/bordaPapel.png" />
+  </div>
+</div>
