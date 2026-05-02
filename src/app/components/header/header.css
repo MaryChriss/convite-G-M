@@ -55,6 +55,18 @@
   width: 100%;
 }
 
+.main-header.dark .navigation a {
+  color: black;
+}
+
+.main-header.dark .navigation a:hover {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.main-header.dark .navigation a::after {
+  background: black;
+}
+
 @media (max-width: 768px) {
   .main-header {
     flex-direction: column;

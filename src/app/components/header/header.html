@@ -1,6 +1,6 @@
-<header class="main-header">
+<header class="main-header" [class.dark]="dark">
   <div class="logo">
-    <img src="/iconBranco.png" alt="G & M" />
+    <img [src]="dark ? '/iconPreto.png' : '/iconBranco.png'" alt="G & M" />
   </div>
 
   <nav class="navigation">

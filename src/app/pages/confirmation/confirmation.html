@@ -1,1 +1,40 @@
-<p>confirmation works!</p>
+<div class="container">
+  <app-header [dark]="true" />
+
+  <div class="content">
+    <div class="content-inner">
+      <div class="image-wrapper">
+        <img src="/confirmImage.png" alt="Confirmation" />
+      </div>
+
+      <div class="text-wrapper">
+        <h1>
+          Sua presença <br />
+          nesse dia é mais <br />
+          que especial!
+        </h1>
+        <p class="confirmation-text">
+          Pedimos que confirme o <br />
+          mais rápido que puder,<br />
+          assim que tiver certeza.
+        </p>
+      </div>
+    </div>
+
+    <div class="search-container">
+      <input
+        type="text"
+        placeholder="Search you name..."
+        [(ngModel)]="searchTerm"
+        (input)="filterList()"
+        class="search-input"
+      />
+
+      <ul class="results">
+        <li *ngFor="let guest of filteredGuests">
+          {{ guest }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
