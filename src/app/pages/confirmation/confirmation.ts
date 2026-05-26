@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Header } from '../../components/header/header';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Convidado, ConvidadosService } from '../../services/convidados';
 
 @Component({
   selector: 'app-confirmation',
@@ -9,16 +10,73 @@ import { CommonModule } from '@angular/common';
   templateUrl: './confirmation.html',
   styleUrl: './confirmation.css',
 })
-export class Confirmation {
-  searchTerm: string = '';
+export class Confirmation implements OnInit {
+  searchTerm = '';
+  guests: Convidado[] = [];
+  filteredGuests: Convidado[] = [];
+  selectedGuest: Convidado | null = null;
+  confirmationSent = false;
+  loading = true;
+  error = false;
 
-  guests: string[] = ['Mariana Christina', 'Maria', 'Marcela', 'Mirella Rodrigues'];
+  constructor(
+    private convidadosService: ConvidadosService,
+    private cdr: ChangeDetectorRef,
+  ) {}
 
-  filteredGuests: string[] = [...this.guests];
+  ngOnInit() {
+    this.convidadosService.getConvidados().subscribe({
+      next: (data) => {
+        this.guests = data;
+        this.loading = false;
+        this.updateFilteredList();
+        this.cdr.detectChanges();
+      },
+      error: (err) => {
+        console.error('Erro:', err);
+        this.loading = false;
+        this.error = true;
+        this.cdr.detectChanges();
+      },
+    });
+  }
 
   filterList() {
-    const value = this.searchTerm.toLowerCase();
+    this.updateFilteredList();
+    this.selectedGuest = null;
+    this.confirmationSent = false;
+  }
 
-    this.filteredGuests = this.guests.filter((guest) => guest.toLowerCase().includes(value));
+  selectGuest(guest: Convidado) {
+    this.selectedGuest = guest;
+    this.confirmationSent = false;
+  }
+
+  confirmPresence() {
+    if (!this.selectedGuest) return;
+
+    this.convidadosService.confirmarPresenca(this.selectedGuest.nome).subscribe({
+      next: () => {
+        this.selectedGuest!.confirmado = true;
+        this.confirmationSent = true;
+        this.updateFilteredList();
+        this.cdr.detectChanges();
+      },
+      error: () => alert('Erro ao confirmar. Tente novamente.'),
+    });
+  }
+
+  goBack() {
+    this.selectedGuest = null;
+    this.confirmationSent = false;
+    this.searchTerm = '';
+    this.updateFilteredList();
+  }
+
+  private updateFilteredList() {
+    const term = this.searchTerm.toLowerCase();
+    this.filteredGuests = this.guests.filter(
+      (g) => !g.confirmado && g.nome.toLowerCase().includes(term),
+    );
   }
 }

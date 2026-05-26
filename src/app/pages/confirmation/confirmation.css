@@ -42,6 +42,7 @@
   align-items: center;
   gap: 60px;
 }
+
 .text-wrapper h1 {
   font-size: 2.5rem;
   font-family: 'Inria Serif', serif;
@@ -82,14 +83,124 @@
   margin-top: 20px;
 }
 
-.results li {
+.guest-button {
+  background: none;
+  border: none;
+  padding: 0;
   margin-bottom: 10px;
   font-size: 18px;
   color: #3a372f;
   cursor: pointer;
-  transition: 0.2s;
+  font-family: 'Georgia', serif;
+  transition: opacity 0.2s;
 }
 
-.results li:hover {
+.guest-button:hover {
   opacity: 0.6;
+}
+
+.confirm-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  font-family: 'Inria Serif', serif;
+  min-width: 240px;
+}
+
+.success-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inria Serif', serif;
+  min-width: 240px;
+  text-align: center;
+}
+
+.panel-name {
+  font-size: 1.5rem;
+  font-family: 'Inria Serif', serif;
+  color: #9c8b6e;
+  font-style: italic;
+  margin: 0;
+}
+
+.confirm-button {
+  border: 1px solid #3a372f;
+  background: transparent;
+  padding: 8px 24px;
+  font-size: 15px;
+  font-family: 'Georgia', serif;
+  color: #3a372f;
+  cursor: pointer;
+  border-radius: 20px;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+
+.confirm-button:hover {
+  background: #3a372f;
+  color: #e3e1da;
+}
+
+.confirm-button:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+.success-label {
+  font-size: 1rem;
+  font-family: 'Inria Serif', serif;
+  color: #3a372f;
+  font-weight: bold;
+  margin: 4px 0 0;
+}
+
+.success-message {
+  font-size: 0.95rem;
+  color: #5a5750;
+  margin: 0;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  color: #8a8680;
+  font-size: 13px;
+  font-family: 'Georgia', serif;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 4px;
+  transition: color 0.2s;
+}
+
+.back-button:hover {
+  color: #3a372f;
+}
+
+.status-message {
+  color: #5a5750;
+  font-size: 0.95rem;
+  margin: 0 0 14px;
+}
+
+.status-message.error {
+  color: #8f3d33;
+}
+
+.right-panel {
+  width: 300px;
+  min-width: 300px;
+  flex-shrink: 0;
+}
+
+.search-container,
+.confirm-panel,
+.success-panel {
+  width: 100%;
+  padding: 20px;
+  font-family: 'Georgia', serif;
+  box-sizing: border-box;
 }

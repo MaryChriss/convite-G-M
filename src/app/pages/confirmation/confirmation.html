@@ -21,20 +21,39 @@
       </div>
     </div>
 
-    <div class="search-container">
-      <input
-        type="text"
-        placeholder="Search you name..."
-        [(ngModel)]="searchTerm"
-        (input)="filterList()"
-        class="search-input"
-      />
+    <div class="right-panel">
+      <p class="loading-text" *ngIf="loading">Carregando convidados...</p>
+      <p class="error-text" *ngIf="error">Erro ao carregar. Recarregue a página.</p>
 
-      <ul class="results">
-        <li *ngFor="let guest of filteredGuests">
-          {{ guest }}
-        </li>
-      </ul>
+      <div class="search-container" *ngIf="!loading && !error && !selectedGuest">
+        <input
+          type="text"
+          placeholder="Busque seu nome..."
+          [(ngModel)]="searchTerm"
+          (input)="filterList()"
+          class="search-input"
+        />
+        <ul class="results">
+          <li *ngFor="let guest of filteredGuests">
+            <button type="button" class="guest-button" (click)="selectGuest(guest)">
+              {{ guest.nome }}
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="confirm-panel" *ngIf="selectedGuest && !confirmationSent">
+        <p class="panel-name">{{ selectedGuest.nome }}</p>
+        <button type="button" class="confirm-button" (click)="confirmPresence()">Confirmar?</button>
+        <button type="button" class="back-button" (click)="goBack()">← Voltar</button>
+      </div>
+
+      <div class="success-panel" *ngIf="confirmationSent">
+        <p class="panel-name">{{ selectedGuest?.nome }}</p>
+        <p class="success-label">Confirmado!</p>
+        <p class="success-message">Estamos animados para te ver no nosso dia!</p>
+        <button type="button" class="back-button" (click)="goBack()">← Voltar</button>
+      </div>
     </div>
   </div>
 </div>
