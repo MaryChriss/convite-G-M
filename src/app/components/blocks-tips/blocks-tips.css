@@ -1,0 +1,28 @@
+.block {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.block-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Inria Serif', serif;
+  font-size: 1.1rem;
+}
+
+.bullet {
+  font-size: 1.2rem;
+}
+
+.block-body {
+  font-family: 'Inria Serif', serif;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  padding-left: 1rem;
+}

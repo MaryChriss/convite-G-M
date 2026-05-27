@@ -1,1 +1,77 @@
-<p>tips works!</p>
+<div class="content">
+  <app-header [dark]="true" />
+
+  <div class="blocks">
+    <div class="block-title">
+      <div class="content-header">
+        <img src="/flor.png" alt="Flor" />
+        <h1>Dicas & Instruções</h1>
+      </div>
+      <p>
+        Preparamos este dia com muito amor e carinho, pensando em cada detalhe para que seja
+        inesquecível.<br />
+        Aqui você encontrará algumas informações importantes para aproveitar cada momento conosco da
+        melhor forma
+      </p>
+    </div>
+
+    <app-blocks-tips title="Dress Code">
+      <p>Nosso grande dia será ainda mais especial com você vestido à altura da ocasião</p>
+
+      <p class="traje"><strong>Traje:</strong> Esporte Fino / Social Elegante</p>
+      <ul>
+        <li><strong>Itens a evitar:</strong></li>
+        <li>- Tons de branco, off-white ou muito claros.</li>
+        <li>- Evitar tom x (madrinhas)</li>
+      </ul>
+    </app-blocks-tips>
+
+    <app-blocks-tips title="Local & Pontualidade">
+      <p>Nossa cerimônia acontecerá no dia xx/xx/xxxx.</p>
+      <p class="traje">
+        <strong>Local:</strong> [Nome do Local], [Endereço Completo].<br />
+        Recomendamos chegar com 30 minutos de antecedência para acomodação e início pontual.
+      </p>
+    </app-blocks-tips>
+
+    <app-blocks-tips title="Presentes">
+      <p>
+        Sua presença é o maior presente que poderíamos desejar! No entanto, se desejar nos
+        presentear, preparamos uma lista de sugestões para facilitar sua escolha.
+      </p>
+      <p class="traje"><strong>Lista de Presentes:</strong> [Link para a Lista de Presentes].</p>
+    </app-blocks-tips>
+
+    <app-blocks-tips title="Confirmação de Presença">
+      <p>
+        Para nos ajudar a organizar melhor nosso grande dia, pedimos que confirme sua presença até o
+        dia xx/xx/xxxx.
+      </p>
+      <p class="traje">[Link para Confirmação de Presença].</p>
+    </app-blocks-tips>
+
+    <app-blocks-tips title="Programação do dia">
+      <p>Aqui está o cronograma detalhado do nosso grande dia:</p>
+      <ul>
+        <li>10:00 - Chegada dos Cionvidados</li>
+        <li>12:00 - Cerimônia</li>
+        <li>15:00 - Festa</li>
+      </ul>
+    </app-blocks-tips>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <img src="/iconPreto.png" alt="IconMG" />
+
+      <p>
+        Estamos contando os dias para viver esse momento com você.<br />
+        Obrigada por fazer parte da nossa história
+      </p>
+    </div>
+
+    <div class="flower">
+      <img src="/footer-flower.png" alt="Flor" />
+    </div>
+  </footer>
+</div>

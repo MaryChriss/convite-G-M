@@ -1,0 +1,80 @@
+.content h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: 'Inria Serif', serif;
+}
+
+.traje {
+  margin-bottom: 1rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  background-color: #e3e1da;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.content-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  margin-top: 5rem;
+}
+
+.content-header img {
+  object-fit: contain;
+}
+
+.blocks {
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+.block-title {
+  margin-bottom: 3rem;
+}
+
+.block-title p {
+  margin-top: -3rem;
+  margin-left: 4.5rem;
+}
+
+.footer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 2rem;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-content img {
+  width: 10rem;
+  margin-top: -1rem;
+  margin-left: -6rem;
+}
+
+.footer-content p {
+  font-size: larger;
+  font-weight: bold;
+  font-family: 'Inria Serif', serif;
+}
+
+.flower {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.flower img {
+  width: 25rem;
+}
