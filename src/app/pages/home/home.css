@@ -146,6 +146,12 @@ small {
 .saveImg {
   width: clamp(150px, 15.8vw, 228px);
   height: auto;
+  /* as três fotos têm proporções diferentes (e a do começo tem uma faixa transparente
+     no topo): mesmo tamanho para todas, recortando por cima e redesenhando a pílula */
+  aspect-ratio: 1 / 1.65;
+  object-fit: cover;
+  object-position: center bottom;
+  border-radius: 9999px;
 }
 
 .item {
