@@ -20,6 +20,7 @@ export class Confirmation implements OnInit {
   confirmError = false;
   loading = true;
   error = false;
+  alreadyConfirmed = false;
 
   constructor(
     private convidadosService: ConvidadosService,
@@ -89,6 +90,10 @@ export class Confirmation implements OnInit {
     const term = this.normalizeText(this.searchTerm.trim());
     this.filteredGuests = this.guests.filter(
       (g) => !g.confirmado && this.normalizeText(g.nome).includes(term),
+    );
+    // Quem já confirmou some da lista; avisamos em vez de dizer "não encontrado"
+    this.alreadyConfirmed = this.guests.some(
+      (g) => g.confirmado && this.normalizeText(g.nome).includes(term),
     );
   }
 

@@ -40,9 +40,14 @@
             </button>
           </li>
         </ul>
-        <p class="status-message" *ngIf="searchTerm && filteredGuests.length === 0">
-          Nenhum convidado encontrado com esse nome.
-        </p>
+        <ng-container *ngIf="searchTerm && filteredGuests.length === 0">
+          <p class="status-message" *ngIf="alreadyConfirmed">
+            Sua presença já está confirmada! Estamos animados para te ver 💛
+          </p>
+          <p class="status-message" *ngIf="!alreadyConfirmed">
+            Nenhum convidado encontrado com esse nome.
+          </p>
+        </ng-container>
       </div>
 
       <div class="confirm-panel" *ngIf="selectedGuest && !confirmationSent">
