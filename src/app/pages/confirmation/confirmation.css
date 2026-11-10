@@ -238,3 +238,59 @@
   font-family: 'Georgia', serif;
   box-sizing: border-box;
 }
+
+@media (max-width: 768px) {
+  .container {
+    min-width: 0;
+  }
+
+  .content {
+    flex-direction: column;
+    gap: 2rem;
+    height: auto;
+    padding: 6.5rem 1.25rem 3rem;
+  }
+
+  .content-inner {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .image-wrapper {
+    width: 60%;
+    max-width: 220px;
+  }
+
+  .image-wrapper::before {
+    left: -16px;
+  }
+
+  .text-wrapper {
+    text-align: center;
+  }
+
+  .text-wrapper h1 {
+    font-size: 1.9rem;
+  }
+
+  .confirmation-text {
+    font-size: 1.05rem;
+  }
+
+  .right-panel {
+    width: 100%;
+    max-width: 360px;
+    min-width: 0;
+    height: auto;
+    min-height: 320px;
+  }
+
+  .search-input {
+    margin-top: 0;
+  }
+
+  .confirm-panel,
+  .success-panel {
+    margin-top: 1rem;
+  }
+}

@@ -79,7 +79,8 @@
 
   <div class="carousel-section">
     <swiper-container
-      [slidesPerView]="2"
+      [slidesPerView]="1"
+      [breakpoints]="{ '769': { slidesPerView: 2 } }"
       [spaceBetween]="0"
       [loop]="true"
       [navigation]="true"

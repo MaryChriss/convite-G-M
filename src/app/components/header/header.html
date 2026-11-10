@@ -1,9 +1,21 @@
-<header class="main-header" [class.dark]="dark">
+<header class="main-header" [class.dark]="dark" [class.menu-open]="menuOpen()">
   <div class="logo">
     <img [src]="dark ? '/iconPreto.png' : '/iconBranco.png'" alt="G & M" />
   </div>
 
-  <nav class="navigation">
+  <button
+    type="button"
+    class="menu-toggle"
+    [attr.aria-expanded]="menuOpen()"
+    aria-label="Abrir menu"
+    (click)="toggleMenu()"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <nav class="navigation" (click)="closeMenu()">
     <a routerLink="/">Início</a>
     <a routerLink="/confirmation">Confirmar presença</a>
     <a routerLink="/tips">Presentes</a>

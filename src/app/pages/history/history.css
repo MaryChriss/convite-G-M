@@ -69,3 +69,22 @@ p {
   margin-bottom: 1rem;
   margin-left: -12rem;
 }
+
+@media (max-width: 768px) {
+  .historia {
+    padding: 6rem 1.25rem 3rem;
+  }
+
+  .fotos-duplas,
+  .foto-texto {
+    grid-template-columns: 1fr;
+  }
+
+  .foto-lateral {
+    max-width: none;
+  }
+
+  .texto-lateral p {
+    margin-left: 0;
+  }
+}
