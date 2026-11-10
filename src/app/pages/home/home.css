@@ -412,20 +412,29 @@ swiper-container::part(button-next) {
     font-size: 0.9rem;
   }
 
+  /* os 6 números numa linha só, como no desktop */
   .countdown {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem 0.5rem;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0;
     margin-top: auto;
-    padding: 3rem 1rem 6rem;
+    padding: 2rem 0.5rem 4.5rem;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
   }
 
   .countdown div {
     margin: 0;
   }
 
-  .numero {
-    font-size: 2.5rem;
+  /* ".countdown span" (4rem) é mais específico que ".numero": precisa do mesmo peso */
+  .countdown .numero {
+    font-size: 1.85rem;
+    line-height: 1.1;
+  }
+
+  .countdown .box p {
+    font-size: 0.7rem;
+    letter-spacing: 0.02em;
   }
 
   .saveTheDate {
@@ -476,5 +485,11 @@ swiper-container::part(button-next) {
   .pane-btn {
     display: inline-block;
     max-width: 100%;
+  }
+}
+
+@media (max-width: 360px) {
+  .countdown .box p {
+    font-size: 0.6rem;
   }
 }
