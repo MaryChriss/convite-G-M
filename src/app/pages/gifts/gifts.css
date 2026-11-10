@@ -52,6 +52,7 @@
   background: #ffffff;
   border-radius: 12px;
   padding: 1.5rem;
+  overflow: hidden;
 }
 
 .gift-card.given {
@@ -59,11 +60,12 @@
 }
 
 .gift-image {
-  width: 100%;
+  display: block;
+  width: calc(100% + 3rem);
+  max-width: none;
+  margin: -1.5rem -1.5rem 0.5rem;
   aspect-ratio: 4/3;
   object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 0.5rem;
 }
 
 .gift-card h3 {
@@ -192,15 +194,28 @@
   padding: 2rem 1.75rem 1.75rem;
 }
 
+.modal-image {
+  display: block;
+  width: calc(100% + 3.5rem);
+  max-width: none;
+  height: 9rem;
+  margin: -2rem -1.75rem 1.25rem;
+  object-fit: cover;
+}
+
 .modal-close {
   position: absolute;
   top: 0.5rem;
   right: 0.75rem;
-  background: none;
   border: none;
-  font-size: 2rem;
+  z-index: 1;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: rgba(254, 251, 249, 0.85);
+  font-size: 1.75rem;
   line-height: 1;
-  color: #8a8680;
+  color: #5a5750;
   cursor: pointer;
 }
 
@@ -335,5 +350,10 @@
 
   .modal {
     padding: 2rem 1.25rem 1.25rem;
+  }
+
+  .modal-image {
+    width: calc(100% + 2.5rem);
+    margin: -2rem -1.25rem 1.25rem;
   }
 }

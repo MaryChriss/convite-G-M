@@ -70,6 +70,10 @@
     >
       <button type="button" class="modal-close" aria-label="Fechar" (click)="fechar()">×</button>
 
+      @if (presente.imagemUrl) {
+        <img class="modal-image" [src]="presente.imagemUrl" alt="" />
+      }
+
       <h2 id="modal-title">{{ presente.nome }}</h2>
       <p class="modal-price">{{ formatarValor(presente.valor) }}</p>
 
