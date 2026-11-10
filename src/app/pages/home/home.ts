@@ -32,7 +32,7 @@ export class Home implements OnInit, OnDestroy {
   animMinutos = false;
   animSegundos = false;
 
-  private readonly dataEvento = new Date('2027-05-23T00:00:00');
+  private readonly dataEvento = new Date('2027-05-23T16:00:00');
   private intervalId?: ReturnType<typeof setInterval>;
 
   constructor(private cdr: ChangeDetectorRef) {}
