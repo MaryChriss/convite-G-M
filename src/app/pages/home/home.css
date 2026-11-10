@@ -3,6 +3,10 @@
   background-size: 100% auto;
   background-position: top center;
   background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  /* mesma proporção da foto (1440x1257), para a contagem ficar sempre sobre ela */
+  min-height: calc(100vw * 1257 / 1440);
 }
 
 .home-title {
@@ -39,8 +43,6 @@
 
 .countdown div {
   text-align: center;
-  margin-top: 50rem;
-  margin-bottom: 13rem;
 }
 
 .countdown strong {
@@ -59,6 +61,8 @@
   justify-content: center;
   gap: 9rem;
   color: white;
+  margin-top: auto;
+  padding-bottom: 19.5rem;
 }
 
 .box {
@@ -98,7 +102,7 @@ small {
 .papel {
   display: flex;
   justify-content: center;
-  margin-top: -39rem;
+  margin-top: -42.3rem;
 }
 .papel img {
   width: 120rem;
