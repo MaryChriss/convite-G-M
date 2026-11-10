@@ -16,6 +16,8 @@ export class Confirmation implements OnInit {
   filteredGuests: Convidado[] = [];
   selectedGuest: Convidado | null = null;
   confirmationSent = false;
+  confirming = false;
+  confirmError = false;
   loading = true;
   error = false;
 
@@ -50,33 +52,51 @@ export class Confirmation implements OnInit {
   selectGuest(guest: Convidado) {
     this.selectedGuest = guest;
     this.confirmationSent = false;
+    this.confirmError = false;
   }
 
   confirmPresence() {
-    if (!this.selectedGuest) return;
+    if (!this.selectedGuest || this.confirming) return;
+
+    this.confirming = true;
+    this.confirmError = false;
 
     this.convidadosService.confirmarPresenca(this.selectedGuest.nome).subscribe({
       next: () => {
         this.selectedGuest!.confirmado = true;
+        this.confirming = false;
         this.confirmationSent = true;
         this.updateFilteredList();
         this.cdr.detectChanges();
       },
-      error: () => alert('Erro ao confirmar. Tente novamente.'),
+      error: () => {
+        this.confirming = false;
+        this.confirmError = true;
+        this.cdr.detectChanges();
+      },
     });
   }
 
   goBack() {
     this.selectedGuest = null;
     this.confirmationSent = false;
+    this.confirmError = false;
     this.searchTerm = '';
     this.updateFilteredList();
   }
 
   private updateFilteredList() {
-    const term = this.searchTerm.toLowerCase();
+    const term = this.normalizeText(this.searchTerm.trim());
     this.filteredGuests = this.guests.filter(
-      (g) => !g.confirmado && g.nome.toLowerCase().includes(term),
+      (g) => !g.confirmado && this.normalizeText(g.nome).includes(term),
     );
+  }
+
+  // Ignora acentos e maiúsculas na busca ("joao" encontra "João")
+  private normalizeText(text: string) {
+    return text
+      .normalize('NFD')
+      .replace(/\p{Diacritic}/gu, '')
+      .toLowerCase();
   }
 }

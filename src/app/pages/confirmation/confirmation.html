@@ -22,8 +22,8 @@
     </div>
 
     <div class="right-panel">
-      <p class="loading-text" *ngIf="loading">Carregando convidados...</p>
-      <p class="error-text" *ngIf="error">Erro ao carregar. Recarregue a página.</p>
+      <p class="status-message" *ngIf="loading">Carregando convidados...</p>
+      <p class="status-message error" *ngIf="error">Erro ao carregar. Recarregue a página.</p>
 
       <div class="search-container" *ngIf="!loading && !error && !selectedGuest">
         <input
@@ -40,11 +40,24 @@
             </button>
           </li>
         </ul>
+        <p class="status-message" *ngIf="searchTerm && filteredGuests.length === 0">
+          Nenhum convidado encontrado com esse nome.
+        </p>
       </div>
 
       <div class="confirm-panel" *ngIf="selectedGuest && !confirmationSent">
         <p class="panel-name">{{ selectedGuest.nome }}</p>
-        <button type="button" class="confirm-button" (click)="confirmPresence()">Confirmar?</button>
+        <p class="status-message error" *ngIf="confirmError">
+          Erro ao confirmar. Tente novamente.
+        </p>
+        <button
+          type="button"
+          class="confirm-button"
+          [disabled]="confirming"
+          (click)="confirmPresence()"
+        >
+          {{ confirming ? 'Confirmando...' : 'Confirmar?' }}
+        </button>
         <button type="button" class="back-button" (click)="goBack()">← Voltar</button>
       </div>
 
