@@ -63,6 +63,7 @@
   <div class="modal-backdrop" (click)="fechar()">
     <div
       class="modal"
+      [class.wide]="pixConfigurado && etapa() === 'pagar'"
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-title"
@@ -80,41 +81,45 @@
       @if (!pixConfigurado) {
         <p class="status">O Pix ainda está sendo configurado. Volte em breve! 💛</p>
       } @else if (etapa() === 'pagar') {
-        <p class="step"><strong>1.</strong> Abra o app do seu banco e pague com o QR Code ou com o Pix copia e cola:</p>
+        <div class="pay-grid">
+          <div class="pay-qr">
+            <p class="step"><strong>1.</strong> Pague no app do seu banco:</p>
+            <div class="qr">
+              @if (qrCode()) {
+                <img [src]="qrCode()" alt="QR Code Pix do presente" />
+              }
+            </div>
+            <button type="button" class="copy-button" (click)="copiar()">
+              {{ copiado() ? 'Código copiado!' : 'Copiar Pix copia e cola' }}
+            </button>
+          </div>
 
-        <div class="qr">
-          @if (qrCode()) {
-            <img [src]="qrCode()" alt="QR Code Pix do presente" />
-          }
+          <div class="pay-form">
+            <p class="step"><strong>2.</strong> Depois, deixe seu nome e um recado:</p>
+
+            <label class="field">
+              <span>Seu nome</span>
+              <input type="text" [(ngModel)]="nome" maxlength="200" autocomplete="name" />
+            </label>
+            <label class="field">
+              <span>Mensagem (opcional)</span>
+              <textarea [(ngModel)]="mensagem" maxlength="500" rows="2"></textarea>
+            </label>
+
+            @if (erroEnvio()) {
+              <p class="status error">{{ erroEnvio() }}</p>
+            }
+
+            <button
+              type="button"
+              class="gift-button full"
+              [disabled]="enviando()"
+              (click)="confirmar()"
+            >
+              {{ enviando() ? 'Enviando...' : 'Já fiz o Pix' }}
+            </button>
+          </div>
         </div>
-
-        <button type="button" class="copy-button" (click)="copiar()">
-          {{ copiado() ? 'Código copiado!' : 'Copiar Pix copia e cola' }}
-        </button>
-
-        <p class="step"><strong>2.</strong> Depois, deixe seu nome e um recado para os noivos:</p>
-
-        <label class="field">
-          <span>Seu nome</span>
-          <input type="text" [(ngModel)]="nome" maxlength="200" autocomplete="name" />
-        </label>
-        <label class="field">
-          <span>Mensagem (opcional)</span>
-          <textarea [(ngModel)]="mensagem" maxlength="500" rows="3"></textarea>
-        </label>
-
-        @if (erroEnvio()) {
-          <p class="status error">{{ erroEnvio() }}</p>
-        }
-
-        <button
-          type="button"
-          class="gift-button full"
-          [disabled]="enviando()"
-          (click)="confirmar()"
-        >
-          {{ enviando() ? 'Enviando...' : 'Já fiz o Pix' }}
-        </button>
       } @else {
         <div class="thanks">
           <p class="thanks-title">Muito obrigado, {{ nome.trim() }}! 💛</p>

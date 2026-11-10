@@ -187,7 +187,7 @@
   position: relative;
   width: 100%;
   max-width: 26rem;
-  max-height: calc(100vh - 2rem);
+  max-height: calc(100dvh - 2rem);
   overflow-y: auto;
   background: #fefbf9;
   border-radius: 12px;
@@ -198,9 +198,20 @@
   display: block;
   width: calc(100% + 3.5rem);
   max-width: none;
-  height: 9rem;
-  margin: -2rem -1.75rem 1.25rem;
+  height: 7rem;
+  margin: -2rem -1.75rem 1rem;
   object-fit: cover;
+}
+
+.modal.wide {
+  max-width: 44rem;
+}
+
+.pay-grid {
+  display: grid;
+  grid-template-columns: 13.5rem 1fr;
+  gap: 2rem;
+  align-items: start;
 }
 
 .modal-close {
@@ -221,7 +232,7 @@
 
 .modal h2 {
   font-family: 'Antic Didone', serif;
-  font-size: 1.9rem;
+  font-size: 1.75rem;
   font-weight: normal;
   text-align: center;
   padding: 0 1.5rem;
@@ -229,27 +240,27 @@
 
 .modal-price {
   text-align: center;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: bold;
   color: #9c8b6e;
-  margin: 0.25rem 0 1.25rem;
+  margin: 0 0 1rem;
 }
 
 .step {
   font-size: 0.95rem;
   line-height: 1.5;
-  margin: 1rem 0 0.75rem;
+  margin: 0 0 0.6rem;
 }
 
 .qr {
   display: flex;
   justify-content: center;
-  min-height: 220px;
+  min-height: 200px;
 }
 
 .qr img {
-  width: 220px;
-  height: 220px;
+  width: 200px;
+  height: 200px;
   border-radius: 8px;
 }
 
@@ -354,6 +365,37 @@
 
   .modal-image {
     width: calc(100% + 2.5rem);
-    margin: -2rem -1.25rem 1.25rem;
+    height: 5rem;
+    margin: -2rem -1.25rem 0.75rem;
+  }
+
+  .modal h2 {
+    font-size: 1.5rem;
+  }
+
+  .pay-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  /* no celular o QR serve pouco (não dá para ler a própria tela): o "copia e cola" vem antes */
+  .pay-qr {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pay-qr .copy-button {
+    order: 1;
+    margin: 0 0 0.75rem;
+  }
+
+  .pay-qr .qr {
+    order: 2;
+    min-height: 150px;
+  }
+
+  .qr img {
+    width: 150px;
+    height: 150px;
   }
 }
