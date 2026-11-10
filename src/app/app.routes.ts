@@ -11,4 +11,6 @@ export const routes: Routes = [
   { path: 'confirmation', component: Confirmation },
   { path: 'photos', component: Photos },
   { path: 'tips', component: Tips },
+  // carregada só quando acessada: a geração de QR Code não pesa nas outras páginas
+  { path: 'gifts', loadComponent: () => import('./pages/gifts/gifts').then((m) => m.Gifts) },
 ];

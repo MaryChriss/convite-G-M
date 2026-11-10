@@ -1,0 +1,128 @@
+<div class="content">
+  <app-header [dark]="true" />
+
+  <main class="gifts">
+    <header class="gifts-intro">
+      <h1>Lista de Presentes</h1>
+      <p>
+        Sua presença é o nosso maior presente! Mas, se quiser nos presentear, escolha um item
+        abaixo e pague com Pix pelo app do seu banco.
+      </p>
+    </header>
+
+    @if (carregando()) {
+      <p class="status">Carregando presentes...</p>
+    } @else if (erroAoCarregar()) {
+      <p class="status error">Não conseguimos carregar a lista. Recarregue a página.</p>
+    } @else {
+      @if (cotas().length) {
+        <section class="gift-section">
+          <h2>Cotas</h2>
+          <p class="section-hint">Podem ser presenteadas mais de uma vez.</p>
+          <div class="gift-grid">
+            @for (presente of cotas(); track presente.id) {
+              <ng-container
+                *ngTemplateOutlet="card; context: { $implicit: presente }"
+              ></ng-container>
+            }
+          </div>
+        </section>
+      }
+
+      @if (unicos().length) {
+        <section class="gift-section">
+          <h2>Presentes únicos</h2>
+          <p class="section-hint">Cada um só pode ser dado uma vez.</p>
+          <div class="gift-grid">
+            @for (presente of unicos(); track presente.id) {
+              <ng-container
+                *ngTemplateOutlet="card; context: { $implicit: presente }"
+              ></ng-container>
+            }
+          </div>
+        </section>
+      }
+    }
+  </main>
+</div>
+
+<ng-template #card let-presente>
+  <article class="gift-card" [class.given]="presente.jaPresenteado">
+    @if (presente.imagemUrl) {
+      <img class="gift-image" [src]="presente.imagemUrl" [alt]="presente.nome" />
+    }
+    <h3>{{ presente.nome }}</h3>
+    @if (presente.descricao) {
+      <p class="gift-description">{{ presente.descricao }}</p>
+    }
+    <p class="gift-price">{{ formatarValor(presente.valor) }}</p>
+    @if (presente.jaPresenteado) {
+      <span class="gift-given">Já presenteado 💛</span>
+    } @else {
+      <button type="button" class="gift-button" (click)="abrir(presente)">Presentear</button>
+    }
+  </article>
+</ng-template>
+
+@if (selecionado(); as presente) {
+  <div class="modal-backdrop" (click)="fechar()">
+    <div
+      class="modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+      (click)="$event.stopPropagation()"
+    >
+      <button type="button" class="modal-close" aria-label="Fechar" (click)="fechar()">×</button>
+
+      <h2 id="modal-title">{{ presente.nome }}</h2>
+      <p class="modal-price">{{ formatarValor(presente.valor) }}</p>
+
+      @if (!pixConfigurado) {
+        <p class="status">O Pix ainda está sendo configurado. Volte em breve! 💛</p>
+      } @else if (etapa() === 'pagar') {
+        <p class="step"><strong>1.</strong> Abra o app do seu banco e pague com o QR Code ou com o Pix copia e cola:</p>
+
+        <div class="qr">
+          @if (qrCode()) {
+            <img [src]="qrCode()" alt="QR Code Pix do presente" />
+          }
+        </div>
+
+        <button type="button" class="copy-button" (click)="copiar()">
+          {{ copiado() ? 'Código copiado!' : 'Copiar Pix copia e cola' }}
+        </button>
+
+        <p class="step"><strong>2.</strong> Depois, deixe seu nome e um recado para os noivos:</p>
+
+        <label class="field">
+          <span>Seu nome</span>
+          <input type="text" [(ngModel)]="nome" maxlength="200" autocomplete="name" />
+        </label>
+        <label class="field">
+          <span>Mensagem (opcional)</span>
+          <textarea [(ngModel)]="mensagem" maxlength="500" rows="3"></textarea>
+        </label>
+
+        @if (erroEnvio()) {
+          <p class="status error">{{ erroEnvio() }}</p>
+        }
+
+        <button
+          type="button"
+          class="gift-button full"
+          [disabled]="enviando()"
+          (click)="confirmar()"
+        >
+          {{ enviando() ? 'Enviando...' : 'Já fiz o Pix' }}
+        </button>
+      } @else {
+        <div class="thanks">
+          <p class="thanks-title">Muito obrigado, {{ nome.trim() }}! 💛</p>
+          <p>Seu presente foi registrado. Ficamos muito felizes com o carinho!</p>
+          <button type="button" class="gift-button" (click)="fechar()">Fechar</button>
+        </div>
+      }
+    </div>
+  </div>
+}

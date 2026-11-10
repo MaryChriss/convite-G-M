@@ -1,0 +1,279 @@
+.content {
+  background-color: #e3e1da;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.gifts {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 7rem 2rem 5rem;
+}
+
+.gifts-intro {
+  text-align: center;
+  max-width: 38rem;
+  margin: 0 auto 3rem;
+}
+
+.gifts-intro h1 {
+  font-family: 'Antic Didone', serif;
+  font-size: 3rem;
+  font-weight: normal;
+  margin-bottom: 1rem;
+}
+
+.gifts-intro p {
+  line-height: 1.7;
+  color: #5a5750;
+}
+
+.gift-section + .gift-section {
+  margin-top: 3.5rem;
+}
+
+.gift-section h2 {
+  font-family: 'Antic Didone', serif;
+  font-size: 2rem;
+  font-weight: normal;
+}
+
+.section-hint {
+  color: #8a8680;
+  font-size: 0.95rem;
+  margin: 0.25rem 0 1.25rem;
+}
+
+.gift-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 1rem;
+}
+
+.gift-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.gift-card.given {
+  opacity: 0.6;
+}
+
+.gift-image {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.gift-card h3 {
+  font-family: 'Antic Didone', serif;
+  font-size: 1.45rem;
+  font-weight: normal;
+  line-height: 1.2;
+}
+
+.gift-description {
+  color: #5a5750;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.gift-price {
+  margin-top: auto;
+  padding-top: 0.75rem;
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: #3a372f;
+}
+
+.gift-button {
+  background-color: #9c8b6e;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.25rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.gift-button:hover {
+  background-color: #857559;
+}
+
+.gift-button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.gift-button.full {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.gift-given {
+  color: #9c8b6e;
+  font-weight: bold;
+  padding: 0.7rem 0;
+}
+
+.status {
+  color: #5a5750;
+  text-align: center;
+}
+
+.status.error {
+  color: #8f3d33;
+}
+
+/* ---------- modal do Pix ---------- */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(43, 41, 37, 0.55);
+}
+
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: 26rem;
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+  background: #fefbf9;
+  border-radius: 12px;
+  padding: 2rem 1.75rem 1.75rem;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  line-height: 1;
+  color: #8a8680;
+  cursor: pointer;
+}
+
+.modal h2 {
+  font-family: 'Antic Didone', serif;
+  font-size: 1.9rem;
+  font-weight: normal;
+  text-align: center;
+  padding: 0 1.5rem;
+}
+
+.modal-price {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #9c8b6e;
+  margin: 0.25rem 0 1.25rem;
+}
+
+.step {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 1rem 0 0.75rem;
+}
+
+.qr {
+  display: flex;
+  justify-content: center;
+  min-height: 220px;
+}
+
+.qr img {
+  width: 220px;
+  height: 220px;
+  border-radius: 8px;
+}
+
+.copy-button {
+  display: block;
+  width: 100%;
+  margin-top: 0.75rem;
+  padding: 0.65rem 1rem;
+  background: transparent;
+  border: 1px solid #3a372f;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: #3a372f;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+.copy-button:hover {
+  background: #3a372f;
+  color: #fefbf9;
+}
+
+.field {
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.field span {
+  display: block;
+  font-size: 0.85rem;
+  color: #5a5750;
+  margin-bottom: 0.25rem;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid #c9b8a7;
+  border-radius: 6px;
+  background: #ffffff;
+  font-family: inherit;
+  font-size: 1rem;
+  color: #2b2925;
+  resize: vertical;
+}
+
+.thanks {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.thanks-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .gifts {
+    padding: 6rem 1rem 3rem;
+  }
+
+  .gifts-intro h1 {
+    font-size: 2.3rem;
+  }
+
+  .modal {
+    padding: 2rem 1.25rem 1.25rem;
+  }
+}

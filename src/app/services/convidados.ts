@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { map } from 'rxjs';
+import { API_URL } from '../config';
 
 export type Convidado = {
   id?: number;
@@ -22,7 +23,7 @@ type ApiConvidado = {
 })
 export class ConvidadosService {
   private http = inject(HttpClient);
-  private apiUrl = 'http://localhost:8080';
+  private apiUrl = API_URL;
 
   getConvidados() {
     return this.http
