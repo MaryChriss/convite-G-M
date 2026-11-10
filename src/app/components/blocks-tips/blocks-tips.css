@@ -28,7 +28,7 @@
   padding-left: 1rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .block {
     padding: 1.25rem;
   }

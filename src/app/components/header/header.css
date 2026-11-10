@@ -23,7 +23,7 @@
 
 .navigation {
   display: flex;
-  gap: 2.5rem;
+  gap: clamp(1.25rem, 2.5vw, 2.5rem);
   margin-right: 2rem;
 }
 
@@ -34,6 +34,7 @@
   letter-spacing: 0.5px;
   transition: all 0.3s ease;
   position: relative;
+  white-space: nowrap;
 }
 
 .navigation a:hover {
@@ -71,7 +72,7 @@
   display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .main-header {
     height: 4.5rem;
   }

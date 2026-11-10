@@ -100,7 +100,7 @@
   background-color: #857559;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .blocks {
     padding: 0 1rem;
   }

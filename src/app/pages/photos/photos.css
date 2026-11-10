@@ -44,7 +44,7 @@
   transform: scale(1.04);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .gallery {
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: 90px;

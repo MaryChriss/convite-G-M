@@ -324,7 +324,7 @@
   font-weight: bold;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .gifts {
     padding: 6rem 1rem 3rem;
   }
