@@ -7,7 +7,7 @@
 .gifts {
   max-width: 60rem;
   margin: 0 auto;
-  padding: 7rem 2rem 5rem;
+  padding: 7rem 2rem 3rem;
 }
 
 .gifts-intro {
@@ -16,11 +16,22 @@
   margin: 0 auto 3rem;
 }
 
+.title-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.title-row img {
+  object-fit: contain;
+}
+
 .gifts-intro h1 {
   font-family: 'Antic Didone', serif;
   font-size: 3rem;
   font-weight: normal;
-  margin-bottom: 1rem;
 }
 
 .gifts-intro p {
@@ -132,6 +143,45 @@
 
 .status.error {
   color: #8f3d33;
+}
+
+/* ---------- rodapé com flor (igual ao da página de dicas) ---------- */
+
+.footer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 2rem 4rem;
+  overflow: hidden;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-content img {
+  width: 10rem;
+  margin-top: -1rem;
+  margin-left: -6rem;
+}
+
+.footer-content p {
+  font-size: larger;
+  font-weight: bold;
+}
+
+.flower {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.flower img {
+  width: 25rem;
 }
 
 /* ---------- modal do Pix ---------- */
@@ -271,6 +321,32 @@
 
   .gifts-intro h1 {
     font-size: 2.3rem;
+  }
+
+  .title-row img {
+    height: 3.5rem;
+  }
+
+  .footer {
+    flex-direction: column;
+    padding: 2rem 1.25rem 10rem;
+  }
+
+  .footer-content {
+    flex-direction: column;
+  }
+
+  .footer-content img {
+    width: 6rem;
+    margin: 0;
+  }
+
+  .footer-content p {
+    font-size: 1rem;
+  }
+
+  .flower img {
+    width: 9rem;
   }
 
   .modal {
