@@ -1,6 +1,5 @@
-import { Component, computed, HostListener, inject, OnInit, signal } from '@angular/core';
+import { Component, HostListener, inject, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NgTemplateOutlet } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
 import QRCode from 'qrcode';
 import { Header } from '../../components/header/header';
@@ -12,7 +11,7 @@ type Etapa = 'pagar' | 'obrigado';
 
 @Component({
   selector: 'app-gifts',
-  imports: [Header, FormsModule, NgTemplateOutlet],
+  imports: [Header, FormsModule],
   templateUrl: './gifts.html',
   styleUrl: './gifts.css',
 })
@@ -24,9 +23,6 @@ export class Gifts implements OnInit {
   presentes = signal<Presente[]>([]);
   carregando = signal(true);
   erroAoCarregar = signal(false);
-
-  cotas = computed(() => this.presentes().filter((p) => p.tipo === 'cota'));
-  unicos = computed(() => this.presentes().filter((p) => p.tipo === 'unico'));
 
   selecionado = signal<Presente | null>(null);
   etapa = signal<Etapa>('pagar');

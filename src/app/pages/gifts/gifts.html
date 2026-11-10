@@ -9,7 +9,8 @@
       </div>
       <p>
         Sua presença é o nosso maior presente! Mas, se quiser nos presentear, escolha um item
-        abaixo e pague com Pix pelo app do seu banco.
+        abaixo e pague com Pix pelo app do seu banco. Todos podem ser presenteados mais de uma
+        vez.
       </p>
     </header>
 
@@ -18,33 +19,27 @@
     } @else if (erroAoCarregar()) {
       <p class="status error">Não conseguimos carregar a lista. Recarregue a página.</p>
     } @else {
-      @if (cotas().length) {
-        <section class="gift-section">
-          <h2>Cotas</h2>
-          <p class="section-hint">Podem ser presenteadas mais de uma vez.</p>
-          <div class="gift-grid">
-            @for (presente of cotas(); track presente.id) {
-              <ng-container
-                *ngTemplateOutlet="card; context: { $implicit: presente }"
-              ></ng-container>
+      <div class="gift-grid">
+        @for (presente of presentes(); track presente.id) {
+          <article class="gift-card" [class.given]="presente.jaPresenteado">
+            @if (presente.imagemUrl) {
+              <img class="gift-image" [src]="presente.imagemUrl" [alt]="presente.nome" />
             }
-          </div>
-        </section>
-      }
-
-      @if (unicos().length) {
-        <section class="gift-section">
-          <h2>Presentes únicos</h2>
-          <p class="section-hint">Cada um só pode ser dado uma vez.</p>
-          <div class="gift-grid">
-            @for (presente of unicos(); track presente.id) {
-              <ng-container
-                *ngTemplateOutlet="card; context: { $implicit: presente }"
-              ></ng-container>
+            <h3>{{ presente.nome }}</h3>
+            @if (presente.descricao) {
+              <p class="gift-description">{{ presente.descricao }}</p>
             }
-          </div>
-        </section>
-      }
+            <p class="gift-price">{{ formatarValor(presente.valor) }}</p>
+            @if (presente.jaPresenteado) {
+              <span class="gift-given">Já presenteado 💛</span>
+            } @else {
+              <button type="button" class="gift-button" (click)="abrir(presente)">
+                Presentear
+              </button>
+            }
+          </article>
+        }
+      </div>
     }
   </main>
 
@@ -63,24 +58,6 @@
     </div>
   </footer>
 </div>
-
-<ng-template #card let-presente>
-  <article class="gift-card" [class.given]="presente.jaPresenteado">
-    @if (presente.imagemUrl) {
-      <img class="gift-image" [src]="presente.imagemUrl" [alt]="presente.nome" />
-    }
-    <h3>{{ presente.nome }}</h3>
-    @if (presente.descricao) {
-      <p class="gift-description">{{ presente.descricao }}</p>
-    }
-    <p class="gift-price">{{ formatarValor(presente.valor) }}</p>
-    @if (presente.jaPresenteado) {
-      <span class="gift-given">Já presenteado 💛</span>
-    } @else {
-      <button type="button" class="gift-button" (click)="abrir(presente)">Presentear</button>
-    }
-  </article>
-</ng-template>
 
 @if (selecionado(); as presente) {
   <div class="modal-backdrop" (click)="fechar()">
