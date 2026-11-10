@@ -55,6 +55,8 @@ export class Gifts implements OnInit {
   async abrir(presente: Presente) {
     this.selecionado.set(presente);
     this.etapa.set('pagar');
+    // o nome continua (normalmente é a mesma pessoa), mas cada presente tem seu recado
+    this.mensagem = '';
     this.erroEnvio.set('');
     this.copiado.set(false);
     this.qrCode.set('');
