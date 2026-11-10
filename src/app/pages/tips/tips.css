@@ -30,8 +30,11 @@
 }
 
 .blocks {
-  padding-left: 4rem;
-  padding-right: 4rem;
+  width: 100%;
+  max-width: 60rem;
+  margin: 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .block-title {
@@ -80,7 +83,7 @@
 }
 
 .pane-btn {
-  background-color: #c9b8a7;
+  background-color: #9c8b6e;
   color: #fff;
   border: none;
   padding: 0.7rem 1rem;
@@ -90,6 +93,11 @@
   cursor: pointer;
   border-radius: 4px;
   margin-top: 1rem;
+  transition: background-color 0.2s;
+}
+
+.pane-btn:hover {
+  background-color: #857559;
 }
 
 @media (max-width: 768px) {

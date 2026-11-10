@@ -114,8 +114,10 @@ small {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  gap: 6rem;
+  padding: 0 4rem;
   margin-top: -16rem;
-  margin-bottom: 10rem;
+  margin-bottom: 6rem;
 }
 
 .save {
@@ -130,8 +132,7 @@ small {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 6rem;
-  margin-left: 13rem;
+  gap: 4rem;
   margin-top: 2rem;
 }
 
@@ -198,13 +199,14 @@ swiper-slide {
 .pane-title {
   font-family: 'Antic Didone', serif;
   font-size: 2.8rem;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   font-weight: normal;
 }
 
 .pane-address {
-  font-size: 0.8rem;
-  margin-bottom: 40px;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin-bottom: 32px;
   opacity: 0.8;
 }
 
@@ -215,7 +217,21 @@ swiper-slide {
   border-radius: 50px;
   cursor: pointer;
   font-family: inherit;
-  transition: 0.3s;
+  color: inherit;
+  text-decoration: none;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+.pane-btn:hover {
+  background-color: #2b2925;
+  color: white;
+}
+
+.pane-btn.btn-outline-white:hover {
+  background-color: white;
+  color: #2b2925;
 }
 
 .btn-outline-white {
@@ -417,6 +433,7 @@ swiper-container::part(button-next) {
 
   .saveTheDate {
     flex-direction: column;
+    gap: 0;
     margin-top: -2.5rem;
     margin-bottom: 4rem;
     padding: 0 1.25rem;
