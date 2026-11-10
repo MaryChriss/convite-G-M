@@ -3,7 +3,7 @@ import { Header } from '../../components/header/header';
 
 @Component({
   selector: 'app-history',
-  imports: [Header],
+  imports: [],
   templateUrl: './history.html',
   styleUrl: './history.css',
 })

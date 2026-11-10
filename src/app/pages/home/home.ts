@@ -28,7 +28,7 @@ export class Home implements OnInit {
   constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
-    const dataEvento = new Date('2027-03-27T00:00:00');
+    const dataEvento = new Date('2027-05-23T00:00:00');
 
     setInterval(() => {
       const agora = new Date();

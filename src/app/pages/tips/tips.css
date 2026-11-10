@@ -78,3 +78,16 @@
 .flower img {
   width: 25rem;
 }
+
+.pane-btn {
+  background-color: #c9b8a7;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1rem;
+  font-size: 0.875rem;
+  font-weight: bold;
+  font-family: 'Inria Serif', serif;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 1rem;
+}

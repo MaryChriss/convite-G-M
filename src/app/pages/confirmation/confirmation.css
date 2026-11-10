@@ -71,6 +71,7 @@
   font-size: 16px;
   outline: none;
   color: #333;
+  margin-top: 5rem;
 }
 
 .search-input::placeholder {
@@ -80,7 +81,25 @@
 .results {
   list-style: none;
   padding: 0;
+  flex: 1;
   margin-top: 20px;
+  max-height: 320px;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+
+  /* Fade nas bordas para parecer que a lista "continua" */
+  mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 88%, transparent 100%);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 8%,
+    black 88%,
+    transparent 100%
+  );
+}
+
+.results::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
 }
 
 .guest-button {
@@ -106,6 +125,7 @@
   gap: 16px;
   font-family: 'Inria Serif', serif;
   min-width: 240px;
+  margin-top: 7rem;
 }
 
 .success-panel {
@@ -116,6 +136,7 @@
   font-family: 'Inria Serif', serif;
   min-width: 240px;
   text-align: center;
+  margin-top: 7rem;
 }
 
 .panel-name {
@@ -194,9 +215,22 @@
   width: 300px;
   min-width: 300px;
   flex-shrink: 0;
+  height: 400px; /* altura fixa — painel não se move */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
-.search-container,
+.search-container {
+  width: 100%;
+  padding: 20px;
+  font-family: 'Georgia', serif;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .confirm-panel,
 .success-panel {
   width: 100%;
